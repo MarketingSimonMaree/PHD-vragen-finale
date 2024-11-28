@@ -1,53 +1,67 @@
 .App {
   font-family: sans-serif;
   text-align: center;
-}
-.logo {
+ }
+ 
+ .logo {
   text-align: center;
   margin-bottom: 30px;
-}
-
-.logo img {
-  max-height: 60px; /* pas aan naar gewenste hoogte */
+ }
+ 
+ .logo img {
+  max-height: 60px;
   width: auto;
-}
-.container {
+ }
+ 
+ .container {
   width: 100%;
   min-height: 100vh;
   padding: 40px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Veranderd van center naar flex-start */
-  padding-top: 10vh; /* 10% van viewport height vanaf bovenkant */
-}
-
-.grid {
+  justify-content: flex-start;
+  padding-top: 10vh;
+  max-width: 90vw;
+  margin: 0 auto;
+ }
+ 
+ .grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(200px, 350px));
-  gap: 40px; /* Meer ruimte tussen cards */
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  gap: 40px;
   width: 95%;
   max-width: 1400px;
-  margin: 60px auto 0; /* Meer ruimte onder titel */
+  margin: 60px auto 0;
   justify-content: center;
-}
-
-.card {
+ }
+ 
+ .card {
   width: 100%;
   border-radius: 12px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-}
-
-.card img {
+  transition: transform 0.2s ease-in-out;
+ }
+ 
+ .card:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+ }
+ 
+ .card:active {
+  transform: scale(0.98);
+ }
+ 
+ .card img {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
-}
-
-.card h2 {
+ }
+ 
+ .card h2 {
   background: #d69949;
   color: white;
   padding: 10px;
@@ -55,35 +69,22 @@
   font-size: 23px;
   font-weight: 600;
   text-align: center;
-  min-height: 53px; /* vaste hoogte voor alle titels */
+  min-height: 53px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
-}
-
-h1 {
+ }
+ 
+ h1 {
   text-align: center;
   margin-bottom: 20px;
   font-size: 34px;
-}
-
-.card {
-  transition: transform 0.2s ease-in-out;
-}
-
-.card:hover {
-  transform: scale(1.02);
-  cursor: pointer;
-}
-
-.card:active {
-  transform: scale(0.98);
-}
-
-/* Modal styles */
-.modal-overlay {
+ }
+ 
+ /* Modal styles */
+ .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -94,20 +95,20 @@ h1 {
   justify-content: center;
   align-items: center;
   z-index: 1000;
-}
-
-.modal-content {
+ }
+ 
+ .modal-content {
   background: white;
   padding: 40px;
   border-radius: 12px;
-  width: 70%;
-  max-width: 800px;
+  width: 90%;
+  max-width: 1000px;
   position: relative;
   animation: modalFadeIn 0.3s;
-  text-align: center; /* Centreert alle tekst */
-}
-
-.close-button {
+  text-align: center;
+ }
+ 
+ .close-button {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -116,44 +117,44 @@ h1 {
   font-size: 24px;
   cursor: pointer;
   padding: 5px 10px;
-}
-
-.button-container {
+ }
+ 
+ .button-container {
   display: flex;
   gap: 20px;
   justify-content: center;
   margin-top: 30px;
-}
-
-.modal-button {
+ }
+ 
+ .modal-button {
   padding: 12px 24px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s;
   font-size: 16px;
-}
-
-.modal-button.primary {
+ }
+ 
+ .modal-button.primary {
   background: #d69949;
   color: white;
-}
-
-.modal-button.secondary {
+ }
+ 
+ .modal-button.secondary {
   background: white;
   color: #d69949;
   border: 2px solid #d69949;
-}
-
-.modal-button:hover {
+ }
+ 
+ .modal-button:hover {
   transform: translateY(-2px);
-}
-
-.modal-button:active {
+ }
+ 
+ .modal-button:active {
   transform: translateY(0);
-}
-
-@keyframes modalFadeIn {
+ }
+ 
+ @keyframes modalFadeIn {
   from {
     opacity: 0;
     transform: translateY(-20px);
@@ -162,42 +163,72 @@ h1 {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-/* Zorg dat de text in de modal er netjes uitziet */
-.modal-content h2 {
-  margin-bottom: 30px; /* meer ruimte onder titel */
-  font-size: 32px; /* grotere titel */
+ }
+ 
+ .modal-content h2 {
+  margin-bottom: 30px;
+  font-size: 32px;
   color: #333;
   font-weight: 600;
   margin-left: auto !important;
   margin-right: auto !important;
-}
-
-.modal-content p {
-  line-height: 1.8; /* meer regelafstand */
+ }
+ 
+ .modal-content p {
+  line-height: 1.8;
   color: #666;
-  font-size: 18px; /* grotere tekst */
-  margin-bottom: 40px; /* meer ruimte onder tekst */
-  max-width: 600px; /* tekst niet te breed */
+  font-size: 18px;
+  margin-bottom: 40px;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-}
-
-/* Voor extra grote schermen */
-@media (min-width: 1600px) {
-  .grid {
-    gap: 40px;
+ }
+ 
+ /* Voor extra grote schermen */
+ @media (min-width: 1600px) {
+  .container {
     max-width: 1600px;
   }
-}
-
-/* Voor kleinere schermen */
-@media (max-width: 768px) {
+  
+  .grid {
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    gap: 60px;
+  }
+  
+  .card img {
+    height: 400px;
+  }
+  
+  h1 {
+    font-size: 42px;
+  }
+  
+  .card h2 {
+    font-size: 28px;
+    min-height: 65px;
+  }
+  
+  .modal-content {
+    max-width: 1200px;
+    padding: 60px;
+  }
+  
+  .modal-content h2 {
+    font-size: 38px;
+  }
+  
+  .modal-content p {
+    font-size: 22px;
+    max-width: 800px;
+  }
+ }
+ 
+ /* Voor kleinere schermen */
+ @media (max-width: 768px) {
   .grid {
     gap: 20px;
   }
   .container {
     padding: 20px;
   }
-}
+ }
