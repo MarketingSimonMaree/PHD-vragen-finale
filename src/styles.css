@@ -190,46 +190,39 @@ h1 {
   .container {
     max-width: 1600px;
   }
-
   .grid {
     grid-template-columns: repeat(3, minmax(300px, 1fr));
     gap: 60px;
   }
-
   .card img {
     height: 400px;
   }
-
   h1 {
-    font-size: 42px;
+    font-size: 62px;  /* Aangepast naar 62px zoals eerder gevraagd */
   }
-
   .card h2 {
     font-size: 28px;
     min-height: 65px;
   }
-
   .modal-content {
     max-width: 1400px;
     padding: 80px;
   }
-  
   .modal-content h2 {
     font-size: 48px;
     margin-bottom: 40px;
   }
-  
   .modal-content p {
     font-size: 28px;
     max-width: 1000px;
     margin-bottom: 60px;
   }
-  
   .modal-button {
     padding: 16px 32px;
     font-size: 25px;
     font-weight: 550;
   }
+} /* Deze sluitende accolade miste */
 
 /* Voor kleinere schermen */
 @media (max-width: 768px) {
